@@ -1,18 +1,24 @@
 import math
-def init():
-    l=[]
-    for i in range(12):
-        l.append(math.pow(2,i))
 
-def get_min(a,x):
-    count=0
-    greatest=0
-    for i in x:
-        if 
+def calculate(n,s,ls):
+	if n==0:
+		return s
+	greatest=0
+	for i in range(12):
+		if ls[i]<=n and ls[i]>greatest:
+			greatest=ls[i]
+	n=n-greatest
+	s=s+1
+	return calculate(n,s,ls)
+
+
 t=int(input())
 ip=[]
-x=init()
 for i in range(t):
-    ip.append(int(input()))
+	ip.append(int(input()))
+ls=[]
+for i in range(12):
+	ls.append(math.pow(2,i))
 for i in ip:
-    get_min(i,x)
+	ans=calculate(i,0,ls)
+	print(ans)
